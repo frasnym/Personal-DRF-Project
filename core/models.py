@@ -2,11 +2,12 @@ from django.db import models
 
 
 class UserRegistration(models.Model):
+    # ? Declare Account Status Value
     ACTIVE_ACCOUNTSTATUS = 1
     INACTIVE_ACCOUNTSTATUS = 0
     ACCOUNTSTATUS_CHOICES = (
-        (ACTIVE_ACCOUNTSTATUS, 'Active'),
-        (INACTIVE_ACCOUNTSTATUS, 'Inactive'),
+        (ACTIVE_ACCOUNTSTATUS, "Active"),
+        (INACTIVE_ACCOUNTSTATUS, "Inactive"),
     )
 
     username = models.TextField(max_length=20, unique=True)
@@ -15,7 +16,9 @@ class UserRegistration(models.Model):
     email_address = models.TextField(max_length=100, unique=True)
     phone_number = models.TextField(max_length=20, unique=True)
     current_address = models.TextField(max_length=200)
-    account_status = models.IntegerField(choices=ACCOUNTSTATUS_CHOICES, default=ACTIVE_ACCOUNTSTATUS)
+    account_status = models.IntegerField(
+        choices=ACCOUNTSTATUS_CHOICES, default=ACTIVE_ACCOUNTSTATUS
+    )
 
     def __str__(self):
         return self.username
