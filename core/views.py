@@ -37,5 +37,6 @@ class NewUserRegistration(viewsets.ViewSet):
             }
             return Response(respMessage, status=status.HTTP_201_CREATED)
 
+        # ? Get First Error dict Values: Get First Error dict Keys
         respMessage["message"] = f'{list(serializer.errors.values())[0][0]}: {list(serializer.errors.keys())[0]}'
         return Response(respMessage, status=status.HTTP_400_BAD_REQUEST)
