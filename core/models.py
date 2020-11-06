@@ -10,11 +10,11 @@ class UserRegistration(models.Model):
         (INACTIVE_ACCOUNTSTATUS, "Inactive"),
     )
 
-    username = models.TextField(max_length=20, unique=True)
-    password = models.TextField(max_length=200)
-    full_name = models.TextField(max_length=100)
-    email_address = models.TextField(max_length=100, unique=True)
-    phone_number = models.TextField(max_length=20, unique=True)
+    username = models.CharField(max_length=20, unique=True)
+    password = models.CharField(max_length=200)
+    full_name = models.CharField(max_length=100)
+    email_address = models.CharField(max_length=100, unique=True)
+    phone_number = models.CharField(max_length=20, unique=True)
     current_address = models.TextField(max_length=200)
     account_status = models.IntegerField(
         choices=ACCOUNTSTATUS_CHOICES, default=ACTIVE_ACCOUNTSTATUS

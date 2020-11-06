@@ -24,7 +24,6 @@ class NewUserRegistration(viewsets.ViewSet):
         serializer = UserRegistrationSerializer(data=request.data)
 
         if serializer.is_valid():
-            # TODO check username does not contain space
             # TODO multi language response
             # TODO one way encrypt password 
             # serializer.save()
